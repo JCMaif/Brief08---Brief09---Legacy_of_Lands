@@ -1,0 +1,193 @@
+classDiagram
+    direction TB
+    namespace Buildings {
+        class AbstractBuilding {
+            -String name
+            -int health
+            -int capacity
+            -int maxRepos
+            -int currentRepos
+            -int maxBois
+            -int currentBois
+            -int maxPierre
+            -int currentPierre
+            -int maxNourriture
+            -int currentNourriture
+            -int maxFer
+            -int currentFer
+            -int maxOutil
+            -int currentOutil
+            -int maxArme
+            -int currentArme
+            -List<Unite> unites
+            -List<Building> buildings
+            +void build()
+            +String getDescription()
+            +void addUnite(Unite unite)
+            +void addBuilding(Building building)
+            +List<Unite> getUnites()
+            +List<Building> getBuildings()
+        }
+
+        class Atelier {
+        }
+
+        class Caserne {
+        }
+
+        class Chantier {
+        }
+
+        class Exterieur {
+        }
+
+        class Ferme {
+        }
+
+        class Maison {
+        }
+
+        class Muraille {
+        }
+
+        class Village {
+            -String name
+            +String getDescription()
+            +Unite getUnite(String name)
+        }
+        class Building {
+            +void build()
+            +String getDescription()
+        }
+    }
+
+namespace Unites {
+    class AbstractUnite {
+        -String name
+        -int health
+        +String getName()
+        +void performAction()
+        +String getDescription()
+    }
+
+    class AbstractUniteMobile {
+        -LieuxPossibles lieu
+        -Set<RessourcesPossibles> ressources
+        +void setLieu(LieuxPossibles lieu)
+        +LieuxPossibles getLieu()
+        +Set<RessourcesPossibles> getRessources()
+        +void showUnite(String name)
+    }
+
+    class Artisan {
+    }
+
+    class Chef {
+    }
+
+    class Eclaireur {
+    }
+
+    class Soldat {
+    }
+
+    class Villageois {
+        +String getName()
+    }
+    class PeutAllerALExterieur {
+    }
+
+    class PeutAllerDansAtelier {
+    }
+
+    class PeutAllerDansCaserne {
+    }
+
+    class PeutAllerDansFerme {
+    }
+
+    class PeutAllerDansMaison {
+    }
+
+    class PeutAllerDansVillage {
+    }
+
+    class PeutAllerSurChantier {
+    }
+
+    class PeutAllerSurMuraille {
+    }
+
+    class PeutCollecterDeLaNourriture {
+    }
+
+    class PeutCollecterDesArmes {
+    }
+
+    class PeutCollecterDesOutils {
+    }
+
+    class PeutCollecterDesPierres {
+    }
+
+    class PeutCollecterDuBois {
+    }
+
+    class PeutCollecterDuFer {
+    }
+
+    class PeutCollecterDuRepos {
+    }
+}
+
+namespace Ressources {
+    class RessourceChoix {
+    }
+
+}
+
+
+
+
+
+
+    AbstractBuilding <|-- Atelier
+    AbstractBuilding <|-- Caserne
+    AbstractBuilding <|-- Chantier
+    AbstractBuilding <|-- Exterieur
+    AbstractBuilding <|-- Ferme
+    AbstractBuilding <|-- Maison
+    AbstractBuilding <|-- Muraille
+    AbstractBuilding <|-- Village
+
+    AbstractUnite <|-- AbstractUniteMobile
+    AbstractUniteMobile <|-- Artisan
+    AbstractUniteMobile <|-- Chef
+    AbstractUniteMobile <|-- Eclaireur
+    AbstractUniteMobile <|-- Soldat
+    AbstractUniteMobile <|-- Villageois
+
+    Building <|-- AbstractBuilding
+    RessourceChoix <|-- Atelier
+    RessourceChoix <|-- Caserne
+    RessourceChoix <|-- Chantier
+    RessourceChoix <|-- Exterieur
+    RessourceChoix <|-- Ferme
+    RessourceChoix <|-- Maison
+    RessourceChoix <|-- Muraille
+
+    PeutAllerALExterieur <|-- Chef
+    PeutAllerDansAtelier <|-- Artisan
+    PeutAllerDansCaserne <|-- Soldat
+    PeutAllerDansFerme <|-- Villageois
+    PeutAllerDansMaison <|-- Villageois
+    PeutAllerDansVillage <|-- Villageois
+    PeutAllerSurChantier <|-- Artisan
+    PeutAllerSurMuraille <|-- Chef
+    PeutCollecterDeLaNourriture <|-- Villageois
+    PeutCollecterDesArmes <|-- Chef
+    PeutCollecterDesOutils <|-- Artisan
+    PeutCollecterDesPierres <|-- Villageois
+    PeutCollecterDuBois <|-- Villageois
+    PeutCollecterDuFer <|-- Villageois
+    PeutCollecterDuRepos <|-- Villageois
