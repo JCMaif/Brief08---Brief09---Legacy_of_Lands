@@ -51,5 +51,13 @@ Il est possible de modifier la localisation d'un personnage (en modifiant l'argu
 
 Un diagramme de classe est visible ici : [classDiagram](src/main/resources/ClassDiagramm.mmd)
 
-Un diagramme de séquence est visible ici : [sequenceDiagram](src/main/resources/SequenceDiagramm.mmd)
+Un diagramme de séquence de l'application est visible ici : [sequenceDiagram](src/main/resources/SequenceDiagramm.mmd)
+
+Un diagramme de séquence d'un scénario proposé par le brief 09 est en cours; fictif, car ne correspond pas à l'application développée ici.
+[DiagrammeBrief09](src/main/resources/DiagramBrief09.mmd).
+
+Enoncé : 
+
+>Un villageois part récolter des ressources. Il ramène ces ressources au village, ce qui permet de terminer la construction d'un nouveau mur de défense. Ensuite, le villageois va se reposer dans sa maison. Pendant la nuit, un groupe de soldats ennemis attaque le village. Par chance, ils ne parviennent à détruire que le nouveau mur de défense.
+
 

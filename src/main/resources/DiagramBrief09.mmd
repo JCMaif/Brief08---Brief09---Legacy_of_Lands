@@ -1,0 +1,17 @@
+sequenceDiagram
+    autonumber
+    actor Villageois
+    participant Ressources
+    participant Village
+    participant MurDeDefense
+    participant Maison
+    actor SoldatsEnnemis
+
+    Villageois ->> Ressources: Part récolter des ressources
+    Villageois -->> Village: Ramène les ressources
+    Village ->> MurDeDefense: Termine la construction d'un nouveau mur de défense
+    Villageois ->> Maison: Va se reposer
+    Note right of Maison: Nuit tombe
+    SoldatsEnnemis ->> Village: Attaquent le village
+    SoldatsEnnemis ->> MurDeDefense: Détruisent le nouveau mur de défense
+    Note right of Village: Par chance, le village est sauf sauf le nouveau mur de défense
