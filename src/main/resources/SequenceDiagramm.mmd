@@ -1,0 +1,54 @@
+sequenceDiagram
+    participant Main
+    participant VillageInitializer
+    participant Village
+    participant Chef
+    participant Villageois
+    participant Soldat
+    participant Eclaireur
+    participant Maison
+    participant Atelier
+    participant Caserne
+    participant Ferme
+    participant Muraille
+    participant Chantier
+    participant Exterieur
+    participant DisplayUtil
+
+    Main->>VillageInitializer: initializeVillage()
+    VillageInitializer->>Village: new Village("Tatouin")
+    VillageInitializer->>Chef: new Chef()
+    Village->>Chef: addUnite(Chef)
+    VillageInitializer->>Villageois: new Villageois() (10 times)
+    loop for 10 times
+        Village->>Villageois: addUnite(Villageois)
+        Villageois->>Villageois: setLieu(VILLAGE)
+    end
+    VillageInitializer->>Soldat: new Soldat() (10 times)
+    loop for 10 times
+        Village->>Soldat: addUnite(Soldat)
+        Soldat->>Soldat: setLieu(CASERNE)
+    end
+    VillageInitializer->>Eclaireur: new Eclaireur() (2 times)
+    loop for 2 times
+        Village->>Eclaireur: addUnite(Eclaireur)
+        Eclaireur->>Eclaireur: setLieu(EXTERIEUR)
+    end
+    VillageInitializer->>Maison: new Maison()
+    Village->>Maison: addBuilding(Maison)
+    VillageInitializer->>Atelier: new Atelier()
+    Village->>Atelier: addBuilding(Atelier)
+    VillageInitializer->>Caserne: new Caserne()
+    Village->>Caserne: addBuilding(Caserne)
+    VillageInitializer->>Ferme: new Ferme()
+    Village->>Ferme: addBuilding(Ferme)
+    VillageInitializer->>Muraille: new Muraille()
+    Village->>Muraille: addBuilding(Muraille)
+    VillageInitializer->>Chantier: new Chantier()
+    Village->>Chantier: addBuilding(Chantier)
+    VillageInitializer->>Exterieur: new Exterieur()
+    Village->>Exterieur: addBuilding(Exterieur)
+    Main->>DisplayUtil: displayVillage(village)
+    DisplayUtil->>Village: getDescription()
+    Village->>DisplayUtil: return description
+    DisplayUtil->>Main: display description
