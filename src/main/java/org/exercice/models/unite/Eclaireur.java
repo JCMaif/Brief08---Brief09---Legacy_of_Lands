@@ -5,21 +5,18 @@ import org.exercice.models.unite.interfaces.PeutAllerALExterieur;
 import org.exercice.models.unite.interfaces.PeutAllerDansMaison;
 import org.exercice.models.unite.interfaces.PeutCollecterDuRepos;
 
+import java.util.EnumSet;
+import java.util.Set;
+
 public class Eclaireur extends AbstractUniteMobile implements PeutCollecterDuRepos, PeutAllerALExterieur, PeutAllerDansMaison {
+    private static final Set<LieuxPossibles> LIEUX_AUTORISES = EnumSet.of(
+            LieuxPossibles.EXTERIEUR,
+            LieuxPossibles.MAISON
+
+    );
     public Eclaireur() {
-        super("Eclaireur", 70);
+        super("Eclaireur", 70, LIEUX_AUTORISES);
     }
 
-    @Override
-    public void setLieu(LieuxPossibles lieu) {
-        switch (lieu) {
-            case MAISON:
-            case EXTERIEUR:
-                super.setLieu(lieu);
-                break;
-            default:
-                System.out.println("Eclaireur ne peut pas aller là : " + lieu);
-        }
-    }
 
 }
